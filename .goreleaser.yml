@@ -8,6 +8,9 @@ builds:
       - windows
       - linux
     binary: m2c
+    main: ./cmd/m2c/main.go
+    ldflags:
+      - -s -w -X main.build={{.Version}}
 
 archive:
   replacements:

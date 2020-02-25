@@ -9,7 +9,10 @@ import (
 	"github.com/xdefrag/m2c"
 )
 
-var m m2c.Markdown2Confluence
+var (
+	m     m2c.Markdown2Confluence
+	build string
+)
 
 func init() {
 	log.SetFlags(0)
@@ -64,5 +67,5 @@ func Execute(version string) {
 }
 
 func main() {
-	Execute("")
+	Execute(build)
 }
