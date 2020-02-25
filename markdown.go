@@ -1,6 +1,7 @@
-package lib
+package m2c
 
 import (
+	"bytes"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -9,17 +10,13 @@ import (
 	"time"
 
 	"github.com/justmiles/mark"
-
-	"bytes"
-
+	r "github.com/xdefrag/m2c/renderer"
 	"github.com/yuin/goldmark"
 	"github.com/yuin/goldmark/extension"
 	"github.com/yuin/goldmark/parser"
 	"github.com/yuin/goldmark/renderer"
 	"github.com/yuin/goldmark/renderer/html"
 	"github.com/yuin/goldmark/util"
-
-	r "github.com/justmiles/go-markdown2confluence/lib/renderer"
 )
 
 const (

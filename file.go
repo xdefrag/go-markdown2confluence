@@ -1,4 +1,4 @@
-package lib
+package m2c
 
 import (
 	"fmt"

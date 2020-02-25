@@ -1,4 +1,4 @@
-project_name: markdown2confluence
+project_name: m2c
 
 builds:
   - env:
@@ -7,7 +7,7 @@ builds:
       - darwin
       - windows
       - linux
-    binary: markdown2confluence
+    binary: m2c
 
 archive:
   replacements:
