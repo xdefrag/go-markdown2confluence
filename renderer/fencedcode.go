@@ -40,7 +40,7 @@ func (r *ConfluenceFencedCodeBlockHTMLRender) renderConfluenceFencedCode(w util.
 		s = s + `<ac:parameter ac:name="theme">Confluence</ac:parameter>`
 		s = s + `<ac:parameter ac:name="linenumbers">true</ac:parameter>`
 
-		if language != nil {
+		if language != nil && isSupported(string(language)) {
 			s = s + `<ac:parameter ac:name="language">` + string(language) + `</ac:parameter>`
 		}
 
@@ -60,4 +60,39 @@ func (r *ConfluenceFencedCodeBlockHTMLRender) writeLines(w util.BufWriter, sourc
 		line := n.Lines().At(i)
 		w.WriteString(string(line.Value(source)))
 	}
+}
+
+var supportedLanguages = map[string]struct{}{
+	"actionscript": struct{}{},
+	"applescript":  struct{}{},
+	"bash":         struct{}{},
+	"c#":           struct{}{},
+	"c++":          struct{}{},
+	"css":          struct{}{},
+	"coldfusion":   struct{}{},
+	"delphi":       struct{}{},
+	"diff":         struct{}{},
+	"erlang":       struct{}{},
+	"groovy":       struct{}{},
+	"html":         struct{}{},
+	"xml":          struct{}{},
+	"java":         struct{}{},
+	"java fx":      struct{}{},
+	"javascript":   struct{}{},
+	"php":          struct{}{},
+	"plain text":   struct{}{},
+	"powershell":   struct{}{},
+	"python":       struct{}{},
+	"ruby":         struct{}{},
+	"sql":          struct{}{},
+	"sass":         struct{}{},
+	"scala":        struct{}{},
+	"visual basic": struct{}{},
+	"yaml":         struct{}{},
+}
+
+func isSupported(language string) bool {
+	_, ok := supportedLanguages[language]
+
+	return ok
 }
